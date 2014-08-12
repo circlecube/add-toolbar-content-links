@@ -3,7 +3,7 @@ Contributors: circlecube
 Donate link: http://circlecube.com/contact/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.3
-Tested up to: 3.8
+Tested up to: 3.9.1
 Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,9 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 3. The top level link shown to edi the CPT 'Testimonial'.
 
 == Changelog ==
+
+= 0.7 =
+* Compatability testing for up to 3.9.1
 
 = 0.6 =
 * Add links for settings and plugins

@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Add Toolbar Content Links
+Plugin Name: Admin Toolbar Content Links
 Plugin URI: http://circlecube.com
 Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
-Version: 0.6
+Version: 0.7
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
