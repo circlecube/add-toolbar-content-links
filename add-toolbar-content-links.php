@@ -3,7 +3,7 @@
 Plugin Name: Admin Toolbar Content Links
 Plugin URI: http://circlecube.com
 Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
-Version: 0.7
+Version: 0.8
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
@@ -92,16 +92,23 @@ class AddToolbarContentLinks {
 			wp_reset_postdata();
 			$current_post_type = get_post_type_object( get_post_type() );
 
+			$current_post_type_single_label = 'Posts';
+			$current_post_id = '';
+			if ( $current_post_type ) {
+				$current_post_type_single_label = $current_post_type->labels->singular_name;
+				$current_post_id = get_the_ID();
+			}
+
 			$args = array(
 				'id' => 'edit',
-				'title' => 'Edit ' . $current_post_type->labels->singular_name, 
-				'href' => get_admin_url() . 'post.php?post=' . get_the_ID() . '&action=edit', 
+				'title' => 'Edit ' . $current_post_type_single_label, 
+				'href' => get_admin_url() . 'post.php?post=' . $current_post_id . '&action=edit', 
 				'meta' => array(
 					'class' => 'content', 
 					)
 			);
 			$wp_admin_bar->add_node($args);
-
+			
 			$args = array(
 				'id' => 'edit-posts',
 				'title' => 'Edit Posts', 
@@ -143,7 +150,7 @@ class AddToolbarContentLinks {
 				$wp_admin_bar->add_node($args);
 			}
 
-			if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+			/*if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
 
 				$args = array(
 					'id' => 'gforms',
@@ -156,7 +163,7 @@ class AddToolbarContentLinks {
 				);
 				$wp_admin_bar->add_node($args);
 
-			}
+			}*/
 
 			$args = array(
 				'id' => 'edit-widgets',
