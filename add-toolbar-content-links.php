@@ -3,7 +3,7 @@
 Plugin Name: Add Toolbar Content Links
 Plugin URI: http://circlecube.com
 Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
-Version: 0.5
+Version: 0.6
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
@@ -86,91 +86,149 @@ class AddToolbarContentLinks {
 	}
 
 	function custom_toolbar_link($wp_admin_bar) {
-		$current_post_type = get_post_type_object( get_post_type() );
+		$current_user_can = current_user_can( 'install_plugins' );
 
-		$args = array(
-			'id' => 'edit',
-			'title' => 'Edit ' . $current_post_type->labels->singular_name, 
-			'href' => get_admin_url() . 'post.php?post=' . get_the_ID() . '&action=edit', 
-			'meta' => array(
-				'class' => 'content', 
-				)
-		);
-		$wp_admin_bar->add_node($args);
+		if ($current_user_can) {
+			wp_reset_postdata();
+			$current_post_type = get_post_type_object( get_post_type() );
 
-		$args = array(
-			'id' => 'edit-posts',
-			'title' => 'Edit Posts', 
-			'href' => get_admin_url() . 'edit.php', 
-			'parent' => 'edit', 
-			'meta' => array(
-				'class' => 'edit-posts', 
-				)
-		);
-		$wp_admin_bar->add_node($args);
-
-		$args = array(
-			'id' => 'edit-pages',
-			'title' => 'Edit Pages', 
-			'href' => get_admin_url() . 'edit.php?post_type=page', 
-			'parent' => 'edit', 
-			'meta' => array(
-				'class' => 'edit-pages', 
-				)
-		);
-		$wp_admin_bar->add_node($args);
-
-		$args = array(
-		   // 'public'   => true,
-		   '_builtin' => false
-		);
-		$pts = get_post_types($args, 'objects');
-
-		foreach($pts as $pt) {
 			$args = array(
-				'id' => 'edit-' . $pt->name,
-				'title' => 'Edit ' . $pt->label, 
-				'href' => get_admin_url() . 'edit.php?post_type=' . $pt->name,
-				'parent' => 'edit', 
+				'id' => 'edit',
+				'title' => 'Edit ' . $current_post_type->labels->singular_name, 
+				'href' => get_admin_url() . 'post.php?post=' . get_the_ID() . '&action=edit', 
 				'meta' => array(
-					'class' => 'edit-' . $pt->name
+					'class' => 'content', 
 					)
 			);
 			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'edit-posts',
+				'title' => 'Edit Posts', 
+				'href' => get_admin_url() . 'edit.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-posts', 
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'edit-pages',
+				'title' => 'Edit Pages', 
+				'href' => get_admin_url() . 'edit.php?post_type=page', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-pages', 
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+			   // 'public'   => true,
+			   '_builtin' => false
+			);
+			$pts = get_post_types($args, 'objects');
+
+			foreach($pts as $pt) {
+				$args = array(
+					'id' => 'edit-' . $pt->name,
+					'title' => 'Edit ' . $pt->label, 
+					'href' => get_admin_url() . 'edit.php?post_type=' . $pt->name,
+					'parent' => 'edit', 
+					'meta' => array(
+						'class' => 'edit-' . $pt->name
+						)
+				);
+				$wp_admin_bar->add_node($args);
+			}
+
+			if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+
+				$args = array(
+					'id' => 'gforms',
+					'title' => 'Edit Forms', 
+					'href' => get_admin_url() . 'admin.php?page=gf_edit_forms', 
+					'parent' => 'edit', 
+					'meta' => array(
+						'class' => 'edit-forms'
+						)
+				);
+				$wp_admin_bar->add_node($args);
+
+			}
+
+			$args = array(
+				'id' => 'edit-widgets',
+				'title' => 'Edit Widgets', 
+				'href' => get_admin_url() . 'widgets.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-widgets', 
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'edit-menus',
+				'title' => 'Edit Menus', 
+				'href' => get_admin_url() . 'nav-menus.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-menus', 
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'edit-users',
+				'title' => 'Edit Users', 
+				'href' => get_admin_url() . 'users.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-users'
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'plugins',
+				'title' => 'Plugins', 
+				'href' => get_admin_url() . 'plugins.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-plugins'
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			$args = array(
+				'id' => 'settings',
+				'title' => 'Settings', 
+				'href' => get_admin_url() . 'options-general.php', 
+				'parent' => 'edit', 
+				'meta' => array(
+					'class' => 'edit-settings'
+					)
+			);
+			$wp_admin_bar->add_node($args);
+
+			if ( class_exists('WpeCommon') ) {
+
+				$args = array(
+					'id' => 'wp-wpengine',
+					'title' => 'WPEngine', 
+					'href' => get_admin_url() . 'admin.php?page=wpengine-common', 
+					'parent' => 'edit', 
+					'meta' => array(
+						'class' => 'wp-wpengine'
+						)
+				);
+				$wp_admin_bar->add_node($args);
+
+			}
 		}
-
-		$args = array(
-			'id' => 'edit-widgets',
-			'title' => 'Edit Widgets', 
-			'href' => get_admin_url() . 'widgets.php', 
-			'parent' => 'edit', 
-			'meta' => array(
-				'class' => 'edit-widgets', 
-				)
-		);
-		$wp_admin_bar->add_node($args);
-
-		$args = array(
-			'id' => 'edit-menus',
-			'title' => 'Edit Menus', 
-			'href' => get_admin_url() . 'nav-menus.php', 
-			'parent' => 'edit', 
-			'meta' => array(
-				'class' => 'edit-menus', 
-				)
-		);
-		$wp_admin_bar->add_node($args);
-
-		$args = array(
-			'id' => 'edit-users',
-			'title' => 'Edit Users', 
-			'href' => get_admin_url() . 'users.php', 
-			'parent' => 'edit', 
-			'meta' => array(
-				'class' => 'edit-users'
-				)
-		);
-		$wp_admin_bar->add_node($args);
+		//else nothing
 	}
 
 

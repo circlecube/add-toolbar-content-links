@@ -4,7 +4,7 @@ Donate link: http://circlecube.com/contact/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.3
 Tested up to: 3.8
-Stable tag: 0.5
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,10 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 
 == Changelog ==
 
+= 0.6 =
+* Add links for settings and plugins
+* Add link for Gravity Forms (if installed)
+* Add link for WPEngine (if installed)
 
 = 0.5 =
 * Replaces the built in Edit link in the toolbar. Now the dropdown is beneath that link to keep the toolbar less cluttered.
