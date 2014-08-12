@@ -2,8 +2,8 @@
 /*
 Plugin Name: Add Toolbar Content Links
 Plugin URI: http://circlecube.com
-Description: Add links to the post and page listing pages in the wordpress backend. There are links to create content, but what about to go to it.
-Version: 0.1
+Description: Add links to the post and page listing pages in the wordpress backend.
+Version: 0.2
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
@@ -121,6 +121,29 @@ class AddToolbarContentLinks {
 		);
 		$wp_admin_bar->add_node($args);
 
+		$args = array(
+			'id' => 'edit-widgets',
+			'title' => 'Edit Widgets', 
+			'href' => get_admin_url() . 'widgets.php', 
+			'parent' => 'edit-content', 
+			'meta' => array(
+				'class' => 'edit-widgets', 
+				'title' => 'Edit Widgets'
+				)
+		);
+		$wp_admin_bar->add_node($args);
+
+		$args = array(
+			'id' => 'edit-menus',
+			'title' => 'Edit Menus', 
+			'href' => get_admin_url() . 'nav-menus.php', 
+			'parent' => 'edit-content', 
+			'meta' => array(
+				'class' => 'edit-menus', 
+				'title' => 'Edit Menus'
+				)
+		);
+		$wp_admin_bar->add_node($args);
 	}
 
 
