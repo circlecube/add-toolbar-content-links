@@ -2,13 +2,13 @@
 /*
 Plugin Name: Add Toolbar Content Links
 Plugin URI: http://circlecube.com
-Description: Add shortcut links to the admin toolbar to the wordpress back-end pages listing your content.
-Version: 0.3
+Description: Add links to the post and page listing pages in the wordpress backend. There are links to create content, but what about to go to it.
+Version: 0.4
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
 
-  Copyright 2014 Evan Mullins (evan@circlecube.com)
+  Copyright 2011 Evan Mullins (evan@circlecube.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as 
@@ -92,7 +92,6 @@ class AddToolbarContentLinks {
 			'href' => get_admin_url() . 'edit.php', 
 			'meta' => array(
 				'class' => 'content', 
-				'title' => 'Edit Content'
 				)
 		);
 		$wp_admin_bar->add_node($args);
@@ -104,7 +103,6 @@ class AddToolbarContentLinks {
 			'parent' => 'edit-content', 
 			'meta' => array(
 				'class' => 'edit-posts', 
-				'title' => 'Edit Post Content'
 				)
 		);
 		$wp_admin_bar->add_node($args);
@@ -116,7 +114,6 @@ class AddToolbarContentLinks {
 			'parent' => 'edit-content', 
 			'meta' => array(
 				'class' => 'edit-pages', 
-				'title' => 'Edit Page Content'
 				)
 		);
 		$wp_admin_bar->add_node($args);
@@ -147,7 +144,6 @@ class AddToolbarContentLinks {
 			'parent' => 'edit-content', 
 			'meta' => array(
 				'class' => 'edit-widgets', 
-				'title' => 'Edit Widgets'
 				)
 		);
 		$wp_admin_bar->add_node($args);
@@ -159,7 +155,17 @@ class AddToolbarContentLinks {
 			'parent' => 'edit-content', 
 			'meta' => array(
 				'class' => 'edit-menus', 
-				'title' => 'Edit Menus'
+				)
+		);
+		$wp_admin_bar->add_node($args);
+
+		$args = array(
+			'id' => 'edit-users',
+			'title' => 'Edit Users', 
+			'href' => get_admin_url() . 'users.php', 
+			'parent' => 'edit-content', 
+			'meta' => array(
+				'class' => 'edit-users'
 				)
 		);
 		$wp_admin_bar->add_node($args);

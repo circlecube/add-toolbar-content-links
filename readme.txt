@@ -4,7 +4,7 @@ Donate link: http://circlecube.com/contact/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,9 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 
 == Changelog ==
 
+= 0.4 =
+* Adding link to users page.
+
 = 0.3 =
 * Adding support for any custom post types.
 
@@ -40,5 +43,5 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 
 == Upgrade Notice ==
 
-= 0.3 =
-* Integrates any Custom Post Type into the content toolbar menu.
+= 0.4 =
+* Adds User page link
