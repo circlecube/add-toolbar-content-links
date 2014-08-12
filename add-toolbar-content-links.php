@@ -2,8 +2,8 @@
 /*
 Plugin Name: Add Toolbar Content Links
 Plugin URI: http://circlecube.com
-Description: Add links to the post and page listing pages in the wordpress backend. There are links to create content, but what about to go to it.
-Version: 0.4
+Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
+Version: 0.5
 Author: Evan Mullins
 Author Email: evan@circlecube.com
 License:
@@ -86,10 +86,12 @@ class AddToolbarContentLinks {
 	}
 
 	function custom_toolbar_link($wp_admin_bar) {
+		$current_post_type = get_post_type_object( get_post_type() );
+
 		$args = array(
-			'id' => 'edit-content',
-			'title' => 'Content', 
-			'href' => get_admin_url() . 'edit.php', 
+			'id' => 'edit',
+			'title' => 'Edit ' . $current_post_type->labels->singular_name, 
+			'href' => get_admin_url() . 'post.php?post=' . get_the_ID() . '&action=edit', 
 			'meta' => array(
 				'class' => 'content', 
 				)
@@ -100,7 +102,7 @@ class AddToolbarContentLinks {
 			'id' => 'edit-posts',
 			'title' => 'Edit Posts', 
 			'href' => get_admin_url() . 'edit.php', 
-			'parent' => 'edit-content', 
+			'parent' => 'edit', 
 			'meta' => array(
 				'class' => 'edit-posts', 
 				)
@@ -111,7 +113,7 @@ class AddToolbarContentLinks {
 			'id' => 'edit-pages',
 			'title' => 'Edit Pages', 
 			'href' => get_admin_url() . 'edit.php?post_type=page', 
-			'parent' => 'edit-content', 
+			'parent' => 'edit', 
 			'meta' => array(
 				'class' => 'edit-pages', 
 				)
@@ -129,7 +131,7 @@ class AddToolbarContentLinks {
 				'id' => 'edit-' . $pt->name,
 				'title' => 'Edit ' . $pt->label, 
 				'href' => get_admin_url() . 'edit.php?post_type=' . $pt->name,
-				'parent' => 'edit-content', 
+				'parent' => 'edit', 
 				'meta' => array(
 					'class' => 'edit-' . $pt->name
 					)
@@ -141,7 +143,7 @@ class AddToolbarContentLinks {
 			'id' => 'edit-widgets',
 			'title' => 'Edit Widgets', 
 			'href' => get_admin_url() . 'widgets.php', 
-			'parent' => 'edit-content', 
+			'parent' => 'edit', 
 			'meta' => array(
 				'class' => 'edit-widgets', 
 				)
@@ -152,7 +154,7 @@ class AddToolbarContentLinks {
 			'id' => 'edit-menus',
 			'title' => 'Edit Menus', 
 			'href' => get_admin_url() . 'nav-menus.php', 
-			'parent' => 'edit-content', 
+			'parent' => 'edit', 
 			'meta' => array(
 				'class' => 'edit-menus', 
 				)
@@ -163,7 +165,7 @@ class AddToolbarContentLinks {
 			'id' => 'edit-users',
 			'title' => 'Edit Users', 
 			'href' => get_admin_url() . 'users.php', 
-			'parent' => 'edit-content', 
+			'parent' => 'edit', 
 			'meta' => array(
 				'class' => 'edit-users'
 				)

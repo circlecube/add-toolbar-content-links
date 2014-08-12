@@ -2,17 +2,17 @@
 Contributors: circlecube
 Donate link: http://circlecube.com/contact/
 Tags: admin, toolbar, shortcuts
-Requires at least: 3.0.1
+Requires at least: 3.3
 Tested up to: 3.8
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add shortcut links to the admin toolbar to the wordpress back-end pages listing your content.
+Add shortcut links to the admin toolbar to the index pages listing all content types.
 
 == Description ==
 
-Add shortcut links to the admin toolbar to the wordpress back-end pages listing your content and other helpful locations you may find yourself constantly navigating to. This will put them all a click closer. It will list posts, pages, all custom post types as well as the widgets page and the menu page. 
+Add shortcut links to the admin toolbar to the index pages listing all content types and other helpful locations you may find yourself constantly navigating to. This plugin brings these links one click closer. It will link to the index or list pages in the WordPress backend for posts, pages, all custom post types as well as the widgets page, the menu page and the users page. 
 
 == Installation ==
 
@@ -27,7 +27,17 @@ Add shortcut links to the admin toolbar to the wordpress back-end pages listing 
 I found myself constantly clicking to the wordpress dashboard in order to access the links to the pages I needed.
 
 
+== Screenshots ==
+
+1. Showing immediately after the plugin is activated. There is now a toolbar link with dropdown to all the content type content. Note the 'Field Group' CPT.
+2. Showing many more cutom post types that are supported. The top level link still links to edit the current page/content you are viewing.
+3. The top level link shown to edi the CPT 'Testimonial'.
+
 == Changelog ==
+
+
+= 0.5 =
+* Replaces the built in Edit link in the toolbar. Now the dropdown is beneath that link to keep the toolbar less cluttered.
 
 = 0.4 =
 * Adding link to users page.
@@ -43,5 +53,5 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 
 == Upgrade Notice ==
 
-= 0.4 =
-* Adds User page link
+= 0.5 =
+* Combine with (replace) the built in Edit link in the toolbar. Now the dropdown is beneath that link to keep the toolbar less cluttered.
