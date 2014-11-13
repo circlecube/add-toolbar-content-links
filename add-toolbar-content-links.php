@@ -3,8 +3,9 @@
 Plugin Name: Admin Toolbar Content Links
 Plugin URI: http://circlecube.com
 Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
-Version: 0.8
+Version: 0.9
 Author: Evan Mullins
+Author URI: http://circlecube.com
 Author Email: evan@circlecube.com
 License:
 
@@ -89,7 +90,6 @@ class AddToolbarContentLinks {
 		$current_user_can = current_user_can( 'install_plugins' );
 
 		if ($current_user_can) {
-			wp_reset_postdata();
 			$current_post_type = get_post_type_object( get_post_type() );
 
 			$current_post_type_single_label = 'Posts';
@@ -108,7 +108,7 @@ class AddToolbarContentLinks {
 					)
 			);
 			$wp_admin_bar->add_node($args);
-			
+
 			$args = array(
 				'id' => 'edit-posts',
 				'title' => 'Edit Posts', 
@@ -150,7 +150,7 @@ class AddToolbarContentLinks {
 				$wp_admin_bar->add_node($args);
 			}
 
-			/*if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) {
+			if ( class_exists('GFForms') ) {
 
 				$args = array(
 					'id' => 'gforms',
@@ -163,7 +163,7 @@ class AddToolbarContentLinks {
 				);
 				$wp_admin_bar->add_node($args);
 
-			}*/
+			}
 
 			$args = array(
 				'id' => 'edit-widgets',

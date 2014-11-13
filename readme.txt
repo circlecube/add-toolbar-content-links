@@ -3,8 +3,8 @@ Contributors: circlecube
 Donate link: http://circlecube.com/contact/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.3
-Tested up to: 3.9.1
-Stable tag: 0.8
+Tested up to: 4.0.0
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,13 +31,16 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 
 1. Showing immediately after the plugin is activated. There is now a toolbar link with dropdown to all the content type content. Note the 'Field Group' CPT.
 2. Showing many more cutom post types that are supported. The top level link still links to edit the current page/content you are viewing.
-3. The top level link shown to edi the CPT 'Testimonial'.
+3. The top level link shown to edit the Custom Post Type of 'Testimonial'.
 
 == Changelog ==
 
+= 0.9 =
+* Update gravity forms reference: using 'class_exists' rather than 'is_plugin_active'
+
 = 0.8 =
-* Fix php warning notice
-* Check for post
+* Compatability testing for 4.0
+* Removed extraneous wp_reset_postdata that resulted in wrong links on certain templates with nested loops.
 
 = 0.7 =
 * Compatability testing for up to 3.9.1
