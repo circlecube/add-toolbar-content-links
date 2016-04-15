@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Admin Toolbar Content Links
-Plugin URI: http://circlecube.com
-Description: Add shortcut links to the admin toolbar to the index pages listing all content types.
-Version: 0.9
+Plugin URI: https://circlecube.com
+Description: Add shortcut links to the admin toolbar to the index pages listing all content types. Save clicks = save time.
+Version: 1.0
 Author: Evan Mullins
-Author URI: http://circlecube.com
+Author URI: https://circlecube.com
 Author Email: evan@circlecube.com
 License:
 
@@ -138,16 +138,18 @@ class AddToolbarContentLinks {
 			$pts = get_post_types($args, 'objects');
 
 			foreach($pts as $pt) {
-				$args = array(
-					'id' => 'edit-' . $pt->name,
-					'title' => 'Edit ' . $pt->label, 
-					'href' => get_admin_url() . 'edit.php?post_type=' . $pt->name,
-					'parent' => 'edit', 
-					'meta' => array(
-						'class' => 'edit-' . $pt->name
-						)
-				);
-				$wp_admin_bar->add_node($args);
+				if ( $pt->name != 'acf-field') { //exclude the field type of ACF
+					$args = array(
+						'id' => 'edit-' . $pt->name,
+						'title' => 'Edit ' . $pt->label, 
+						'href' => get_admin_url() . 'edit.php?post_type=' . $pt->name,
+						'parent' => 'edit', 
+						'meta' => array(
+							'class' => 'edit-' . $pt->name
+							)
+					);
+					$wp_admin_bar->add_node($args);
+				}
 			}
 
 			if ( class_exists('GFForms') ) {
@@ -219,6 +221,20 @@ class AddToolbarContentLinks {
 					)
 			);
 			$wp_admin_bar->add_node($args);
+
+			if ( class_exists('WPMDB_Base') ) {
+
+				$args = array(
+					'id' => 'wp-migrate-db',
+					'title' => 'WP Migrate DB', 
+					'href' => get_admin_url() . 'tools.php?page=wp-migrate-db-pro', 
+					'parent' => 'edit', 
+					'meta' => array(
+						'class' => 'wp-mdb'
+						)
+				);
+				$wp_admin_bar->add_node($args);
+			}
 
 			if ( class_exists('WpeCommon') ) {
 

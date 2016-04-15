@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: circlecube
-Donate link: http://circlecube.com/contact/
+Donate link: https://circlecube.com/listens/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.3
-Tested up to: 4.3
-Stable tag: 0.9
+Tested up to: 4.5
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Add shortcut links to the admin toolbar to the index pages listing all content t
 
 = What's the point? =
 
-I found myself constantly clicking to the wordpress dashboard in order to access the links to the pages I needed.
+I found myself constantly clicking to the wordpress dashboard in order to access the links to the pages I needed. This plugin save me clicks and thus saves me time.
 
 
 == Screenshots ==
@@ -34,6 +34,11 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 3. The top level link shown to edit the Custom Post Type of 'Testimonial'.
 
 == Changelog ==
+
+= 1.0 =
+* Remove 'Fields' link when ACF is installed since it didn't work
+* Add link to Migrate page if you have Migrate DB or Migrate DB Pro installed.
+* Compatability testing for up to 4.5
 
 = 0.9 =
 * Update gravity forms reference: using 'class_exists' rather than 'is_plugin_active'
