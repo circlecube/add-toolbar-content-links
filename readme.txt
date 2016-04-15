@@ -14,6 +14,8 @@ Add shortcut links to the admin toolbar to the index pages listing all content t
 
 Add shortcut links to the admin toolbar to the index pages listing all content types and other helpful locations you may find yourself constantly navigating to. This plugin brings these links one click closer. It will link to the index or list pages in the WordPress backend for posts, pages, all custom post types as well as the widgets page, the menu page and the users page. 
 
+Saved clicks = saved time!
+
 == Installation ==
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
