@@ -3,8 +3,8 @@ Contributors: circlecube
 Donate link: https://circlecube.com/listens/
 Tags: admin, toolbar, shortcuts
 Requires at least: 3.3
-Tested up to: 4.5
-Stable tag: 1.0
+Tested up to: 5.8
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,10 @@ I found myself constantly clicking to the wordpress dashboard in order to access
 3. The top level link shown to edit the Custom Post Type of 'Testimonial'.
 
 == Changelog ==
+
+= 1.1 =
+* Minor code cleanup
+* Testing on WordPress 5.8
 
 = 1.0 =
 * Remove 'Fields' link when ACF is installed since it didn't work
